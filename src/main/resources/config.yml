@@ -1,0 +1,9 @@
+courses:
+  - name: exampleSeting
+    forward: 0
+    right: 0
+    x: 0
+    z: 0
+    jumpMax: 2.0
+    jumpMin: 0.5
+    ratio: 0.2

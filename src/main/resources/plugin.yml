@@ -1,0 +1,9 @@
+name: Flappybirdparkour
+version: ${project.version}
+main: net.kunmc.lab.flappybirdparkour.Flappybirdparkour
+api-version: 1.15
+depend: [Flappybird, Parkour]
+commands:
+  flappyParkour:
+    permission:
+      default: op
