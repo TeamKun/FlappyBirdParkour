@@ -68,6 +68,11 @@ public class Command implements TabExecutor {
             sender.sendMessage(new StringBuilder().append(ChatColor.RED).append("コースが存在しません！").toString());
             return;
         }
+        List<CourseSetting> candidacy = flappybirdparkour.getCourseSettingList().stream().filter(cs -> cs.getCourseName().equals(courseName)).collect(Collectors.toList());
+        if (candidacy.isEmpty()) {
+            sender.sendMessage(new StringBuilder().append(ChatColor.RED).append("既にFlappyBird用のコースです！").toString());
+            return;
+        }
         CourseSetting courseSetting = new CourseSetting(courseName, flappybirdparkour.getFlappybird());
         flappybirdparkour.getCourseSettingList().add(courseSetting);
         flappybirdparkour.configSave();
