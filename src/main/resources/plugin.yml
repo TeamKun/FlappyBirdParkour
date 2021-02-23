@@ -4,6 +4,6 @@ main: net.kunmc.lab.flappybirdparkour.Flappybirdparkour
 api-version: 1.15
 depend: [Flappybird, Parkour]
 commands:
-  flappyParkour:
+  fbParkour:
     permission:
       default: op

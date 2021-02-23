@@ -11,6 +11,8 @@ import net.kunmc.lab.flappybird.event.PlayerScrollEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -112,5 +114,19 @@ public class EventListenter implements Listener {
             return;
         }
         flappybirdparkour.getFlappybird().leave(player);
+    }
+
+    @EventHandler
+    public void onLogin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        Course course = flappybirdparkour.getParkour().getCourseManager().findByPlayer(player);
+        if (course == null) {
+            return;
+        }
+        List<CourseSetting> candidacy = flappybirdparkour.getCourseSettingList().stream().filter(cs -> cs.getCourseName().equals(course.getName())).collect(Collectors.toList());
+        if (candidacy.isEmpty()) {
+            return;
+        }
+        flappybirdparkour.getFlappybird().join(player);
     }
 }
