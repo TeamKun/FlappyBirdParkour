@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.util.Vector;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -92,6 +93,7 @@ public class EventListenter implements Listener {
         if (candidacy.isEmpty()) {
             return;
         }
+        player.setVelocity(new Vector(0, 0, 0));
         flappybirdparkour.getFlappybird().getPlayerStartTime().replace(player, System.currentTimeMillis());
         flappybirdparkour.getFlappybird().getPlayerJumpCount().replace(player, 0);
     }
