@@ -62,7 +62,8 @@ public class Command implements TabExecutor {
         } else if (args.length == 2) {
             switch (args[0]) {
                 case "toFlappy":
-                    suggestions = CourseInfo.getAllCourseNames().stream().filter(s -> s.contains(args[1])).collect(Collectors.toList());
+                    List<String> fbcourses = flappybirdparkour.getCourseSettingList().stream().map(courseSetting -> courseSetting.getCourseName()).collect(Collectors.toList());
+                    suggestions = CourseInfo.getAllCourseNames().stream().filter(s -> !fbcourses.contains(s)).filter(s -> s.contains(args[1])).collect(Collectors.toList());
                     break;
                 case "toNormal":
                     suggestions = flappybirdparkour.getCourseSettingList().stream().map(courseSetting -> courseSetting.getCourseName()).filter(s -> s.contains(args[1])).collect(Collectors.toList());
