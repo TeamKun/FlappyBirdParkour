@@ -7,3 +7,6 @@ courses:
     jumpMax: 2.0
     jumpMin: 0.5
     ratio: 0.2
+    forceJump: 1.0
+    checkPointDistanceXZ: 3.0
+    checkPointDistanceY: 10.0
