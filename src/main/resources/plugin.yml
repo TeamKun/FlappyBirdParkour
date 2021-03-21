@@ -5,5 +5,7 @@ api-version: 1.15
 depend: [Flappybird, Parkour]
 commands:
   fbParkour:
-    permission:
-      default: op
+    permission: fbParkour
+permissions:
+  fbParkour:
+    default: op
